@@ -3,7 +3,8 @@ register_blueprint "wither_watcher"
 	blueprint = "watcher_base",
 	lists = {
 		group    = "being",
-		{ keywords = { "dante", "beyond", "hard", "demon", "demon1" }, weight = 50 },
+		{ keywords = { "test" }, weight = 150 },
+		{ keywords = { "dante", "beyond", "hard", "demon", "demon2" }, weight = 300 },
 	},
 	attributes = {
 		resist = {

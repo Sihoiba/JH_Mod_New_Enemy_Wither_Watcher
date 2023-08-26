@@ -3,8 +3,10 @@ register_blueprint "wither_watcher"
 	blueprint = "watcher_base",
 	lists = {
 		group    = "being",
-		{ keywords = { "test" }, weight = 150 },
+		-- { keywords = { "test" }, weight = 150 },
+		{ { "wither_watcher", "pyrowatcher" }, keywords = { "test" }, weight = 150 },
 		{ keywords = { "dante", "beyond", "hard", "demon", "demon2" }, weight = 300 },
+		{ { "wither_watcher", "pyrowatcher" }, keywords = { "dante", "beyond", "hard", "demon", "demon2" }, weight = 150 },
 	},
 	attributes = {
 		resist = {
@@ -64,6 +66,7 @@ register_blueprint "wither_watcher"
 						if data.ai and not data.is_mechanical then
 							if data.ai.group == "player" or data.ai.group == "cri" then
 								world:add_buff( b, "buff_wither", 101, true )
+								core.apply_damage_status( b, "poisoned", "toxin", 1, actor )
 							else
 								world:add_buff( b, "buff_watcher_gaze_enemy", 101, true )
 							end
